@@ -1,0 +1,400 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="ja" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>6 バンドの追加・編集 &#8212; 電子線後方回折バンド抽出プログラム</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/translations.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://unpkg.com/mermaid@9.4.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '2_バンド抽出の実行/2.5_バンドの追加・編集';</script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="7 エディタの操作" href="../3_%E3%82%A8%E3%83%87%E3%82%A3%E3%82%BF%E3%81%A8%E3%82%B0%E3%83%A9%E3%83%95%E3%81%AE%E6%93%8D%E4%BD%9C/3.1_%E3%82%A8%E3%83%87%E3%82%A3%E3%82%BF.html" />
+    <link rel="prev" title="5 バンド抽出の実行" href="2.4_%E3%83%90%E3%83%B3%E3%83%89%E6%8A%BD%E5%87%BA%E3%81%AE%E5%AE%9F%E8%A1%8C.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ja"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">電子線後方回折バンド抽出プログラム</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">インストール</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../1_%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB/1.1_%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB.html">1 インストール</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">起動からバンド抽出の実行</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="2.1_%E3%82%BD%E3%83%95%E3%83%88%E3%82%A6%E3%82%A7%E3%82%A2%E3%81%AE%E8%B5%B7%E5%8B%95.html">2 ソフトウェアの起動</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.2_%E5%9B%9E%E6%8A%98%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92%E9%96%8B%E3%81%8F.html">3 回折データを開く</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.3_%E5%85%A5%E5%8A%9B%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E8%A8%AD%E5%AE%9A.html">4 入力パラメータ設定</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2.4_%E3%83%90%E3%83%B3%E3%83%89%E6%8A%BD%E5%87%BA%E3%81%AE%E5%AE%9F%E8%A1%8C.html">5 バンド抽出の実行</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">6 バンドの追加・編集</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">エディタとグラフの操作</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../3_%E3%82%A8%E3%83%87%E3%82%A3%E3%82%BF%E3%81%A8%E3%82%B0%E3%83%A9%E3%83%95%E3%81%AE%E6%93%8D%E4%BD%9C/3.1_%E3%82%A8%E3%83%87%E3%82%A3%E3%82%BF.html">7 エディタの操作</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_%E3%82%A8%E3%83%87%E3%82%A3%E3%82%BF%E3%81%A8%E3%82%B0%E3%83%A9%E3%83%95%E3%81%AE%E6%93%8D%E4%BD%9C/3.2_%E3%82%B0%E3%83%A9%E3%83%95.html">8 グラフの操作</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>バンドの追加・編集</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> 目次 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">6.1 削除</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">6.2 追加（グラフのクリック）</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">6.3 追加（既存のバンドから）</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">6.4 編集</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="band-edit">
+<span id="id1"></span><h1><span class="section-number">6 </span>バンドの追加・編集<a class="headerlink" href="#band-edit" title="この見出しへのパーマリンク">#</a></h1>
+<section id="id2">
+<h2><span class="section-number">6.1 </span>削除<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">#</a></h2>
+<p>バンドを削除するには、表の行ヘッダーをクリックして行全体を選択したのち、<span class="guilabel">削除</span>ボタンを押してください：</p>
+<figure class="align-default">
+<img alt="../_images/2.5_n83.png" src="../_images/2.5_n83.png" />
+</figure>
+<p>複数の行を選択するには、<kbd class="kbd docutils literal notranslate">Ctrl</kbd>キーを押しながら選択します。</p>
+</section>
+<section id="id3">
+<h2><span class="section-number">6.2 </span>追加（グラフのクリック）<a class="headerlink" href="#id3" title="この見出しへのパーマリンク">#</a></h2>
+<p>バンドを追加する方法は2つあります。1つ目は、2次微分のグラフ上において、追加したい箇所を右クリックします。
+すると、バンドを追加することを確認するダイアログが表示されるので、<span class="guilabel">OK</span>ボタンを押します（<code class="docutils literal notranslate"><span class="pre">θ</span></code> はグラフの横軸の値、<code class="docutils literal notranslate"><span class="pre">ρ</span></code> は同じく縦軸）：</p>
+<figure class="align-default">
+<img alt="../_images/2.5_y74.png" src="../_images/2.5_y74.png" />
+</figure>
+<p>追加が成功すれば、追加されたバンドが表で選択された状態になります。</p>
+<p>バンドの境界や中心は、クリック点をもとに自動的に計算されますが、クリック箇所によってはこの計算は失敗することがあります。
+例えば、候補となるバンドが存在しなかったり、近くにバンドが既に存在している場合です。
+失敗した場合は、その旨が赤字で表示されます：</p>
+<figure class="align-default">
+<img alt="../_images/2.5_u9z.png" src="../_images/2.5_u9z.png" />
+</figure>
+</section>
+<section id="id4">
+<h2><span class="section-number">6.3 </span>追加（既存のバンドから）<a class="headerlink" href="#id4" title="この見出しへのパーマリンク">#</a></h2>
+<p>バンドを追加する別の方法として、既存のバンドの交点を通るようなバンドを追加することもできます。
+下図を見てもわかるように、バンドの交点同士を結ぶようなバンドが存在します
+（例えば、1番・2番の交点と3番・4番の交点を結ぶバンドが見て取れます）：</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../_images/2.5_k4e.png"><img alt="../_images/2.5_k4e.png" src="../_images/2.5_k4e.png" style="width: 80%;" /></a>
+</figure>
+<p>そのようなバンドを自動的に追加するには、<span class="guilabel">交点からバンド生成</span>ボタンを押します：</p>
+<figure class="align-default">
+<img alt="../_images/2.5_i7a.png" src="../_images/2.5_i7a.png" />
+</figure>
+<p>すると全ての可能な組み合わせに対して、バンドの検索を行います。
+バンドが追加された場合、追加されたバンドは、ウィンドウ左の表で選択された状態になります。</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../_images/2.5_e4c.png"><img alt="../_images/2.5_e4c.png" src="../_images/2.5_e4c.png" style="width: 90%;" /></a>
+</figure>
+</section>
+<section id="id5">
+<h2><span class="section-number">6.4 </span>編集<a class="headerlink" href="#id5" title="この見出しへのパーマリンク">#</a></h2>
+<p>バンドを編集するには、ウィンドウ左側の表を編集します（相関値は編集できません）：</p>
+<figure class="align-default">
+<img alt="../_images/2.5_c7g.png" src="../_images/2.5_c7g.png" />
+</figure>
+<p><span class="math notranslate nohighlight">\(\theta, \rho_{\rm begin}, \rho_{\rm end}\)</span> については、編集後のパラメータをもとに
+バンドが再検索されるので、編集した値と全く同じにはなりません。
+また、どれかを変更すると、ほかの値も連動して変化します。</p>
+<p><span class="math notranslate nohighlight">\(\rho_{\rm begin},\rho_{\rm end}\)</span>は、2次微分のグラフ上において、黒い領域と白い領域の境界（＝2次微分がゼロになるところ）を狙います。例えば、下図のように取ります。</p>
+<figure class="align-default">
+<img alt="../_images/2.5_k5b.png" src="../_images/2.5_k5b.png" />
+</figure>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="2.4_%E3%83%90%E3%83%B3%E3%83%89%E6%8A%BD%E5%87%BA%E3%81%AE%E5%AE%9F%E8%A1%8C.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">前へ</p>
+        <p class="prev-next-title"><span class="section-number">5 </span>バンド抽出の実行</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../3_%E3%82%A8%E3%83%87%E3%82%A3%E3%82%BF%E3%81%A8%E3%82%B0%E3%83%A9%E3%83%95%E3%81%AE%E6%93%8D%E4%BD%9C/3.1_%E3%82%A8%E3%83%87%E3%82%A3%E3%82%BF.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">次へ</p>
+        <p class="prev-next-title"><span class="section-number">7 </span>エディタの操作</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目次
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">6.1 削除</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">6.2 追加（グラフのクリック）</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">6.3 追加（既存のバンドから）</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">6.4 編集</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+著者 (株)ヴィジブルインフォメーションセンター
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+footer,
+#rtd-footer-container,
+.bd-header-article,
+.headerlink {
+	display: none !important
+}
+html {
+	font-size: 15px;
+}
+
+/* 最上部にスペースを入れる */
+.bd-main .bd-content .bd-article-container .bd-article {
+    padding-top: 1.5rem !important;
+}
+
+/* ナビゲーションを隠さないようにする */
+.bd-sidebar-primary {
+    width: 200px !important;
+	visibility: visible !important;
+	margin-left: 0 !important;
+	font-size: var(--pst-sidebar-font-size) !important;
+    position: sticky !important;
+}
+nav.bd-links p.caption {
+    font-size: var(--pst-sidebar-font-size) !important;
+}
+.sidebar-header-items {
+	display: none !important;
+}
+
+/*
+ソフトウェア上でのマニュアルタブ再選択時に出る、"Skip to main content"というメッセージを抑制する。
+display: none; にすると、DABSToolsロゴがフォーカスを持つので、それを回避するには、位置だけを変更したほうが良い。
+*/
+.skip-link {
+/*	top: -1000px !important;*/
+	display: none !important;
+}
+
+/* 印刷 */
+h2 {
+    break-before: page;
+}
+figcaption {
+    break-before: avoid;
+}

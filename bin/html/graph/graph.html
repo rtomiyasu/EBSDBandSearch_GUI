@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="plotly-2.8.3.min.js"></script>
+
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .graph_input {
+            width: 100%; /* vwにするとスクロールバーのせいではみ出る */
+        }
+        .graph_sub {
+		    margin-top: 30px;
+            width: 100%;
+            height: 100vw;
+        }
+		.check_boxes {
+			text-align: right;
+			font-size: 15px;
+			margin: 10px 5px 0 0;
+		}
+		input[type=checkbox] {
+			transform: scale(1.5);
+			margin: 0 5px 0 10px;
+		}
+		svg {
+			image-rendering: pixelated;
+		}
+    </style>
+</head>
+<body>
+    <div id="graph-input" class="graph_input"></div>
+    <div class="check_boxes">
+        Band:
+        <input type="checkbox" id="band-edge" name="band-edge" onchange="checkChanged(this)" checked><label for="band-edge">edge</label>
+        <input type="checkbox" id="band-center" name="band-center" onchange="checkChanged(this)"><label for="band-center">center</label>
+        <input type="checkbox" id="band-number" name="band-number" onchange="checkChanged(this)" checked><label for="band-number">number</label>
+    </div>
+    <hr>
+    <div id="graph-2nd-deriv" class="graph_sub"></div>
+    <div class="check_boxes">
+        Band:
+        <input type="checkbox" id="band-number-is-black-2nd" name="band-number-is-black-2nd" onchange="checkChanged(this)" checked><label for="band-number-is-black-2nd">change-color</label>
+        <input type="checkbox" id="band-edge-2nd" name="band-edge-2nd" onchange="checkChanged(this)" checked><label for="band-edge-2nd">edge</label>
+        <input type="checkbox" id="band-number-2nd" name="band-number-2nd" onchange="checkChanged(this)" checked><label for="band-number-2nd">number</label>
+    </div>
+    <hr>
+    <div id="graph-1st-deriv" class="graph_sub"></div>
+    <hr>
+    <div id="graph-radon" class="graph_sub"></div>
+    <script src="graph.js"></script>
+    <script>
+        function notify(value) {
+            try {
+                window.chrome.webview.postMessage(value); // 直接ブラウザで開いた場合、この関数が存在しないため例外が出る。
+            }
+            catch (e) { }
+        }
+
+		document.body.addEventListener('keydown', event => {
+            if (event.key === 'o' && event.ctrlKey) { notify("ctrl o"); }
+            if (event.key === 'r' && event.ctrlKey) { notify("ctrl r"); }
+        });
+	
+        graph_init();
+    </script>
+</body>
+</html>

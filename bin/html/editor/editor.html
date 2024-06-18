@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css" media="screen">
+        body {
+            overflow: hidden;
+        }
+
+        #editor {
+            margin: 0;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .ace_print-margin-layer {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <pre id="editor"></pre>
+
+    <script src="ace.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+
+        var editor = ace.edit("editor");
+        editor.setTheme("ace/theme/clouds");
+        editor.session.setMode("ace/mode/python");
+        editor.setOption("hScrollBarAlwaysVisible", true);
+		editor.setFontSize(12);
+        editor.session.setOptions({ tabSize: 2, useSoftTabs: false });
+
+
+        function setText(text) {
+            editor.setValue(text, -1); // -1はキャレット位置（この引数を省略すると全体が選択された状態になる）
+            editor.getSession().setUndoManager(new ace.UndoManager());
+        }
+
+
+        function notify(value) {
+            try {
+                window.chrome.webview.postMessage(value); // 直接ブラウザで開いた場合、この関数が存在しないため例外が出る。
+            }
+            catch (e) { }
+        }
+
+        editor.getSession().on('change', () => notify("changed"));
+ 
+		document.body.addEventListener('keydown', event => {
+            if (event.key === 'o' && event.ctrlKey) { notify("ctrl o"); }
+            if (event.key === 'r' && event.ctrlKey) { notify("ctrl r"); }
+        });
+		
+    </script>
+
+</body>
+</html>
