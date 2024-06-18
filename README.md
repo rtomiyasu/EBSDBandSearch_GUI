@@ -7,4 +7,6 @@
 
 の作業を行うことが出来る。
 ## 使い方
-https://github.com/rtomiyasu/EBSDBandSearch_GUI/bin/manual/index.htmlに掲載されている。
+https://github.com/rtomiyasu/EBSDBandSearch_GUI/bin/manual/index.html
+
+に掲載されている。
