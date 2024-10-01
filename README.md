@@ -8,3 +8,4 @@
 を行うことが出来る。
 ## 使い方
 ソフトウェアマニュアル（pdf）は[こちら](https://github.com/rtomiyasu/EBSDBandSearch_GUI/blob/master/doc/manual.pdf)
+[こちら](https://github.com/rtomiyasu/EBSDBandSearch_GUI/ランタイム/Readme.txt)もお読みください。
