@@ -9,4 +9,4 @@
 ## 使い方
 ソフトウェアマニュアル（pdf）は[こちら](https://github.com/rtomiyasu/EBSDBandSearch_GUI/blob/master/doc/manual.pdf)。
 
-[こちら](https://github.com/rtomiyasu/EBSDBandSearch_GUI/blob/master/ランタイム/README.txt)もお読みください。
+実行に必要なランタイムの情報は[こちら](https://github.com/rtomiyasu/EBSDBandSearch_GUI/blob/master/ランタイム/README.txt)にもあります。
