@@ -1,4 +1,4 @@
-[to_English][English](https://github.com/rtomiyasu/EBSDBandSearch_GUI/blob/master/README_eng.md)
+[to_English](https://github.com/rtomiyasu/EBSDBandSearch_GUI/blob/master/README_eng.md)
 # バンドサーチプログラム(GUI版)
 ## 概要
 本ソフトウェアは、[ここ](https://github.com/rtomiyasu/BandSearch)で配布中のEBSD ab-initio indexingプログラムの入力となる電子線後方回折（EBSD）画像のバンドサーチを行うプログラムである。GUI操作により、自動取得したバンドサーチ結果を見ながら
