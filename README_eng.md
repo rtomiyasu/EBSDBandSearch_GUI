@@ -9,4 +9,4 @@ This software is a program that performs band searches on EBSD images, which are
 ## How to use
 The software manual (pdf) is [here](https://github.com/rtomiyasu/EBSDBandSearch_GUI/blob/master/doc/manual.pdf).
 
-Runtime information required for execution is also available here(https://github.com/rtomiyasu/EBSDBandSearch_GUI/blob/master/runtime/README.txt).
+Runtime information required for execution is also available [here](https://github.com/rtomiyasu/EBSDBandSearch_GUI/blob/master/runtime/README.txt).
