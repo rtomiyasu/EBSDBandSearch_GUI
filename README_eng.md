@@ -1,4 +1,4 @@
-# Band search program (GUI version) ([Japanese](https://github.com/rtomiyasu/EBSDBandSearch_GUI/blob/master/README_jpn.md))
+# Band search program (GUI version) ([Japanese](https://github.com/rtomiyasu/EBSDBandSearch_GUI/blob/master/README.md))
 ## Overview
 This software is a program that performs band searches on EBSD images, which are input to the EBSD ab-initio indexing program distributed [here](https://github.com/rtomiyasu/BandSearch). By using the GUI, you can perform the following operations while viewing the band search results:
 
